@@ -72,17 +72,19 @@
     <h2>Objective</h2>
     <p>This lab will simulate an issue with a customer's environment.</p>
     <ul>
-        <li>Customer losses VPN connectivity when failing over</li>
-        <li>Failing back resolves the issue</li>
+        <li>Customer upgraded both gateway last night, since then their web server is unreachable</li>
+        <li>Failing back does not resolve the issue</li>
+        <li>Rebooting does not resolve the issue</li>
     </ul>
     <p>Lab objectives</p>
     <ul>
-        <li>As we will not have a VPN connection, we will simulate the scenario by connecting with SSH to the cluster VIP address</li>
-        <li>Starting the lab you will be either be able to connect by SSH with the VIP address to the active member or you wont be able to. Failing over will change this behavior</li>
+        <li>Connecting the the Web Browser uses the frontend load balancer IP (frontend-lb)</li>
+        <li>Connecting to the web browser with HTTP will show a simple LAMP page</li>
+        <li>Note: The connection is only HTTP. HTTPS will not work</li>
         <li><b>Goal:</b>
          <ul>
            <li>Find the root cause of the issue</li>
-           <li>Resolve the issue and manage to connect via SSH to the active member with the VIP address no matter who is active</li>
+           <li>Resolve the issue and manage to connect via HTTP to the web server</li>
          </ul>
         </li>
         <br>
@@ -105,7 +107,7 @@
     <h3>Step 2</h3>
     <p>Run the Auto-MGMT script.</p>
     <ul>
-        <li><b>Note: In SmartConsole this labe will be called AzureLab1, this is correct and you can ignore the naming scheme </b></li>
+        <li><b>Note: In SmartConsole this lab will be called AzureLab1, this is correct and you can ignore the naming scheme </b></li>
         <li>Connect with SSH to the MGMT server</li>
         <li>Connect to the Azure portal using the credential proivded in the lab environment tab</li>
         <li>Run the following command on the MGMT server: <code>/var/log/automgmt.sh</code></li>
